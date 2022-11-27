@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DiffUtil;
 
-public class BaseListDiffCallback <T extends ListDiffInterface> extends DiffUtil.ItemCallback<T>{
+public class BaseListDiffCallback <T extends ListDiffInterface<T>> extends DiffUtil.ItemCallback<T>{
 
     @Nullable
     @Override
@@ -19,6 +19,6 @@ public class BaseListDiffCallback <T extends ListDiffInterface> extends DiffUtil
 
     @Override
     public boolean areContentsTheSame(@NonNull T oldItem, @NonNull T newItem) {
-        return false;
+        return oldItem.equals(newItem);
     }
 }
